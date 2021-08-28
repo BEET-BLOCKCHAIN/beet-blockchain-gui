@@ -5,13 +5,13 @@ import {
   Amount,
   Fee,
   Form,
-  TextField as FlaxTextField,
+  TextField as beetTextField,
   AlertDialog,
   CopyToClipboard,
   Flex,
   Card,
   ConfirmDialog,
-} from '@flax/core';
+} from '@beet/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { useDispatch, useSelector } from 'react-redux';
 import isNumeric from 'validator/es/lib/isNumeric';
@@ -42,7 +42,7 @@ import {
   send_transaction,
   farm_block,
 } from '../../../modules/message';
-import { /* mojo_to_flax_string, */ flax_to_mojo } from '../../../util/flax';
+import { /* mojo_to_beet_string, */ beet_to_mojo } from '../../../util/beet';
 import { openDialog } from '../../../modules/dialog';
 import { get_transaction_result } from '../../../util/transaction_result';
 import config from '../../../config/config';
@@ -238,7 +238,7 @@ function BalanceCardSubSection(props: BalanceCardSubSectionProps) {
         </Box>
         <Box>
           <Typography variant="subtitle1">
-            {mojo_to_flax_string(props.balance)} {currencyCode}
+            {mojo_to_beet_string(props.balance)} {currencyCode}
           </Typography>
         </Box>
       </Box>
@@ -273,7 +273,7 @@ function BalanceCard(props: BalanceCardProps) {
         balance={balance}
         tooltip={
           <Trans>
-            This is the total amount of flax in the blockchain at the current
+            This is the total amount of beet in the blockchain at the current
             peak sub block that is controlled by your private keys. It includes
             frozen farming rewards, but not pending incoming and outgoing
             transactions.
@@ -285,9 +285,9 @@ function BalanceCard(props: BalanceCardProps) {
         balance={balance_spendable}
         tooltip={
           <Trans>
-            This is the amount of Flax that you can currently use to make
+            This is the amount of beet that you can currently use to make
             transactions. It does not include pending farming rewards, pending
-            incoming transactions, and Flax that you have just spent but is not
+            incoming transactions, and beet that you have just spent but is not
             yet in the blockchain.
           </Trans>
         }
@@ -454,7 +454,7 @@ function SendCard(props: SendCardProps) {
         openDialog(
           <AlertDialog>
             <Trans>
-              Error: Cannot send flax to coloured address. Please enter a flax
+              Error: Cannot send beet to coloured address. Please enter a beet
               address.
             </Trans>
           </AlertDialog>,
@@ -463,15 +463,15 @@ function SendCard(props: SendCardProps) {
       return;
     }
 
-    if (address.slice(0, 12) === 'flax_addr://') {
+    if (address.slice(0, 12) === 'beet_addr://') {
       address = address.slice(12);
     }
     if (address.startsWith('0x') || address.startsWith('0X')) {
       address = address.slice(2);
     }
 
-    const amountValue = Number.parseFloat(flax_to_mojo(amount));
-    const feeValue = Number.parseFloat(flax_to_mojo(fee));
+    const amountValue = Number.parseFloat(beet_to_mojo(amount));
+    const feeValue = Number.parseFloat(beet_to_mojo(fee));
 
     dispatch(send_transaction(wallet_id, amountValue, feeValue, address));
 
@@ -494,7 +494,7 @@ function SendCard(props: SendCardProps) {
       <Form methods={methods} onSubmit={handleSubmit}>
         <Grid spacing={2} container>
           <Grid xs={12} item>
-            <FlaxTextField
+            <beetTextField
               name="address"
               variant="filled"
               color="secondary"
@@ -644,7 +644,7 @@ export default function StandardWallet(props: StandardWalletProps) {
       <Flex gap={1} alignItems="center">
         <Flex flexGrow={1}>
           <Typography variant="h5" gutterBottom>
-            <Trans>Flax Wallet</Trans>
+            <Trans>beet Wallet</Trans>
           </Typography>
         </Flex>
         <More>

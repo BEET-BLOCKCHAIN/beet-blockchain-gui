@@ -9,7 +9,7 @@ import {
   Flex,
   Checkbox,
   TooltipIcon,
-} from '@flax/core';
+} from '@beet/core';
 import {
   Grid,
   FormControl,

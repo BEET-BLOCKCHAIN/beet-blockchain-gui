@@ -1,17 +1,17 @@
 const units = {
-  flax: 1,
+  beet: 1,
   mojo: 1 / 1e12,
   colouredcoin: 1 / 1e9,
 };
 
 const aliases = {
-  flax: ['ch', 'flax', 'Flax'],
+  beet: ['ch', 'beet', 'beet'],
   mojo: ['mj', 'mojo'],
   colouredcoin: ['cc', 'colouredcoin'],
 };
 
 const display = {
-  flax: {
+  beet: {
     format: '{amount} CH',
     fractionDigits: 12,
   },

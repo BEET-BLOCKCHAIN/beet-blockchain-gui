@@ -9,7 +9,7 @@ import {
   LinearProgress,
   Typography,
 } from '@material-ui/core';
-import { Flex, Log } from '@flax/core';
+import { Flex, Log } from '@beet/core';
 import styled from 'styled-components';
 import type { RootState } from '../../../modules/rootReducer';
 import useThrottleSelector from '../../../hooks/useThrottleSelector';

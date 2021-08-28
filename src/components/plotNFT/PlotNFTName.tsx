@@ -4,7 +4,7 @@ import { Trans } from '@lingui/macro';
 import styled from 'styled-components';
 import type PlotNFT from '../../types/PlotNFT';
 import usePlotNFTName from '../../hooks/usePlotNFTName';
-import { Address, Flex, TooltipIcon } from '@flax/core';
+import { Address, Flex, TooltipIcon } from '@beet/core';
 import PlotNFTExternal from '../../types/PlotNFTExternal';
 
 const StyledTitle = styled(Box)`

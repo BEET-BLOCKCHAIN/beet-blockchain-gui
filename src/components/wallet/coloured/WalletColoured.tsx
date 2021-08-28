@@ -3,7 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import { useDispatch, useSelector } from 'react-redux';
 import { Trans } from '@lingui/macro';
-import { AlertDialog, Card, Flex } from '@flax/core';
+import { AlertDialog, Card, Flex } from '@beet/core';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import {
@@ -23,7 +23,7 @@ import {
 import {
   mojo_to_colouredcoin_string,
   colouredcoin_to_mojo,
-} from '../../../util/flax';
+} from '../../../util/beet';
 import { openDialog } from '../../../modules/dialog';
 import { get_transaction_result } from '../../../util/transaction_result';
 import config from '../../../config/config';
@@ -346,15 +346,15 @@ function BalanceCard(props: BalanceCardProps) {
   const balancebox_unit = ` ${cc_unit}`;
   const balancebox_hline =
     "<tr><td colspan='2' style='text-align:center'><hr width='50%'></td></tr>";
-  const balance_ptotal_flax = mojo_to_colouredcoin_string(balance_ptotal);
-  const balance_pending_flax = mojo_to_colouredcoin_string(balance_pending);
-  const balance_change_flax = mojo_to_colouredcoin_string(balance_change);
+  const balance_ptotal_beet = mojo_to_colouredcoin_string(balance_ptotal);
+  const balance_pending_beet = mojo_to_colouredcoin_string(balance_pending);
+  const balance_change_beet = mojo_to_colouredcoin_string(balance_change);
   const acc_content =
     balancebox_1 +
     balancebox_2 +
     balancebox_ptotal +
     balancebox_3 +
-    balance_ptotal_flax +
+    balance_ptotal_beet +
     balancebox_unit +
     balancebox_hline +
     balancebox_4 +
@@ -362,14 +362,14 @@ function BalanceCard(props: BalanceCardProps) {
     balancebox_2 +
     balancebox_pending +
     balancebox_3 +
-    balance_pending_flax +
+    balance_pending_beet +
     balancebox_unit +
     balancebox_4 +
     balancebox_row +
     balancebox_2 +
     balancebox_change +
     balancebox_3 +
-    balance_change_flax +
+    balance_change_beet +
     balancebox_unit +
     balancebox_5;
 
@@ -489,7 +489,7 @@ function SendCard(props: SendCardProps) {
     const amount = colouredcoin_to_mojo(amount_input.value);
     const fee = colouredcoin_to_mojo(fee_input.value);
 
-    if (address.includes('flax_addr') || address.includes('colour_desc')) {
+    if (address.includes('beet_addr') || address.includes('colour_desc')) {
       dispatch(
         openDialog(
           <AlertDialog>

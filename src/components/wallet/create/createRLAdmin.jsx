@@ -1,6 +1,6 @@
 import React from 'react';
 import { Trans } from '@lingui/macro';
-import { AlertDialog } from '@flax/core';
+import { AlertDialog } from '@beet/core';
 import {
   Typography,
   Button,
@@ -20,7 +20,7 @@ import {
 } from '../../../modules/createWallet';
 import { useStyles } from './WalletCreate';
 import { create_rl_admin_action } from '../../../modules/message';
-import { flax_to_mojo } from '../../../util/flax';
+import { beet_to_mojo } from '../../../util/beet';
 import { openDialog } from '../../../modules/dialog';
 
 export const customStyles = makeStyles((theme) => ({
@@ -76,7 +76,7 @@ export const CreateRLAdminWallet = () => {
   const custom = customStyles();
   const dispatch = useDispatch();
   let interval_input = null;
-  let flaxper_input = null;
+  let beetper_input = null;
   let userpubkey_input = null;
   let amount_input = null;
   let fee_input = null;
@@ -104,10 +104,10 @@ export const CreateRLAdminWallet = () => {
       return;
     }
     if (
-      flaxper_input.value === '' ||
-      Number(flaxper_input.value) === 0 ||
-      !Number(flaxper_input.value) ||
-      isNaN(Number(flaxper_input.value))
+      beetper_input.value === '' ||
+      Number(beetper_input.value) === 0 ||
+      !Number(beetper_input.value) ||
+      isNaN(Number(beetper_input.value))
     ) {
       dispatch(
         openDialog(
@@ -156,18 +156,18 @@ export const CreateRLAdminWallet = () => {
     dispatch(createState(true, true));
     const interval = interval_input.value;
     const interval_value = Number.parseInt(Number(interval));
-    const flaxper = flax_to_mojo(flaxper_input.value);
-    const flaxper_value = Number.parseInt(Number(flaxper));
+    const beetper = beet_to_mojo(beetper_input.value);
+    const beetper_value = Number.parseInt(Number(beetper));
     const userpubkey = userpubkey_input.value;
-    const amount = flax_to_mojo(amount_input.value);
+    const amount = beet_to_mojo(amount_input.value);
     const amount_value = Number.parseInt(Number(amount));
-    // var fee = flax_to_mojo(fee_input.value);
+    // var fee = beet_to_mojo(fee_input.value);
     // TODO(lipa): send fee to server
     // const fee_value = parseInt(Number(fee));
     dispatch(
       create_rl_admin_action(
         interval_value,
-        flaxper_value,
+        beetper_value,
         userpubkey,
         amount_value,
       ),
@@ -225,7 +225,7 @@ export const CreateRLAdminWallet = () => {
               color="secondary"
               fullWidth
               inputRef={(input) => {
-                flaxper_input = input;
+                beetper_input = input;
               }}
               label={<Trans>Spendable Amount</Trans>}
             />

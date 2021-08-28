@@ -1,9 +1,9 @@
 import React, { useMemo, ReactNode } from 'react';
-import { Table } from '@flax/core';
+import { Table } from '@beet/core';
 import styled from 'styled-components';
 import { Trans } from '@lingui/macro';
 import { Box } from '@material-ui/core';
-import { mojo_to_flax_string } from '../../util/flax';
+import { mojo_to_beet_string } from '../../util/beet';
 
 const Amount = styled(Box)`
   white-space: normal;
@@ -46,7 +46,7 @@ export default function TradesTable(props: Props) {
         return {
           side: amount < 0 ? <Trans>Sell</Trans> : <Trans>Buy</Trans>,
           name: <Amount>{name}</Amount>,
-          amount: <Amount>{mojo_to_flax_string(humanAmount)}</Amount>,
+          amount: <Amount>{mojo_to_beet_string(humanAmount)}</Amount>,
         };
       }),
     [rows],

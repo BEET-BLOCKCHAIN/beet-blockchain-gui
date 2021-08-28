@@ -12,11 +12,11 @@ global.key_path = 'config/ssl/daemon/private_daemon.key';
 
 function loadConfig(net) {
   try {
-    // check if FLAX_ROOT is set. it overrides 'net'
+    // check if beet_ROOT is set. it overrides 'net'
     const config_root_dir =
-      'FLAX_ROOT' in process.env
-        ? process.env.FLAX_ROOT
-        : path.join(os.homedir(), '.flax', net);
+      'beet_ROOT' in process.env
+        ? process.env.beet_ROOT
+        : path.join(os.homedir(), '.beet', net);
     const config = yaml.load(
       fs.readFileSync(path.join(config_root_dir, 'config/config.yaml'), 'utf8'),
     );

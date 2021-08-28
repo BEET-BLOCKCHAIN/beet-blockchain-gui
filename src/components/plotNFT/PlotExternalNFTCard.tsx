@@ -11,7 +11,7 @@ import {
   Loading,
   FormatLargeNumber,
   Link,
-} from '@flax/core';
+} from '@beet/core';
 import {
   Box,
   Card,

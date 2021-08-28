@@ -2,8 +2,8 @@ const units = require('../../util/units');
 
 describe('units', () => {
   describe('#getUnit', () => {
-    it('gets unit of flax', () => {
-      const result = units.getUnit('flax');
+    it('gets unit of beet', () => {
+      const result = units.getUnit('beet');
 
       expect(result).toBe(1);
     });
@@ -18,11 +18,11 @@ describe('units', () => {
       expect(result).toBe(1e-9);
     });
     it('supports uppercase characters', () => {
-      const result = units.getUnit('FLAX');
+      const result = units.getUnit('beet');
 
       expect(result).toBe(1);
     });
-    it('gets unit of flax using alias', () => {
+    it('gets unit of beet using alias', () => {
       const result = units.getUnit('ch');
 
       expect(result).toBe(1);
@@ -46,8 +46,8 @@ describe('units', () => {
     });
   });
   describe('#getDisplay', () => {
-    it('gets display of flax', () => {
-      const result = units.getDisplay('flax');
+    it('gets display of beet', () => {
+      const result = units.getDisplay('beet');
 
       expect(result).toEqual({
         format: '{amount} CH',
@@ -87,13 +87,13 @@ describe('units', () => {
       expect(result).toEqual(1);
     });
     it('modifies an existing unit', () => {
-      units.setUnit('flax', 9);
+      units.setUnit('beet', 9);
 
-      const result = units.getUnit('flax');
+      const result = units.getUnit('beet');
 
       expect(result).toEqual(9);
 
-      units.setUnit('flax', 1);
+      units.setUnit('beet', 1);
     });
   });
   describe('#setDisplay', () => {
@@ -111,15 +111,15 @@ describe('units', () => {
       });
     });
     it('updates an existing display', () => {
-      units.setDisplay('flax', {
-        format: '{amount} TXFX',
+      units.setDisplay('beet', {
+        format: '{amount} TXBT',
         fractionDigits: 0,
       });
 
-      const result = units.getDisplay('flax');
+      const result = units.getDisplay('beet');
 
       expect(result).toEqual({
-        format: '{amount} TXFX',
+        format: '{amount} TXBT',
         fractionDigits: 0,
       });
     });

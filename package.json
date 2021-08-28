@@ -1,8 +1,8 @@
 {
-  "name": "flax-blockchain",
-  "author": "Flax Network <hello@flaxnetwork.org> (https://flaxnetwork.org/)",
-  "description": "GUI for Flax Blockchain",
-  "productName": "Flax Blockchain",
+  "name": "beet-blockchain",
+  "author": "beet Network <hello@beetnetwork.org> (https://beetnetwork.org/)",
+  "description": "GUI for beet Blockchain",
+  "productName": "beet Blockchain",
   "private": true,
   "homepage": "./",
   "main": "build/electron/main.js",

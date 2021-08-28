@@ -9,8 +9,8 @@ import {
   Loading,
   StateColor,
   Table,
-} from '@flax/core';
-import { Status } from '@flax/icons';
+} from '@beet/core';
+import { Status } from '@beet/icons';
 import { useRouteMatch, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Box, Tooltip, Typography } from '@material-ui/core';

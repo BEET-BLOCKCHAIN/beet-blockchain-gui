@@ -19,7 +19,7 @@ import {
   Loading,
   TooltipIcon,
   Flex,
-} from '@flax/core';
+} from '@beet/core';
 import {
   unix_to_short_date,
   hex_to_array,
@@ -27,7 +27,7 @@ import {
   sha256,
 } from '../../util/utils';
 import { getBlockRecord, getBlock } from '../../modules/fullnodeMessages';
-import { mojo_to_flax } from '../../util/flax';
+import { mojo_to_beet } from '../../util/beet';
 import {
   calculatePoolReward,
   calculateBaseFarmerReward,
@@ -171,13 +171,13 @@ export default function Block() {
       ? blockRecord.weight - prevBlockRecord.weight
       : blockRecord?.weight ?? 0;
 
-  const poolReward = mojo_to_flax(calculatePoolReward(blockRecord.height));
-  const baseFarmerReward = mojo_to_flax(
+  const poolReward = mojo_to_beet(calculatePoolReward(blockRecord.height));
+  const baseFarmerReward = mojo_to_beet(
     calculateBaseFarmerReward(blockRecord.height),
   );
 
-  const flaxFees = blockRecord.fees
-    ? mojo_to_flax(BigInt(blockRecord.fees))
+  const beetFees = blockRecord.fees
+    ? mojo_to_beet(BigInt(blockRecord.fees))
     : '';
 
   const rows = [
@@ -268,7 +268,7 @@ export default function Block() {
       value: (
         <Link
           target="_blank"
-          href={`https://www.flaxexplorer.org/blockchain/puzzlehash/${blockRecord.farmer_puzzle_hash}`}
+          href={`https://www.beetexplorer.org/blockchain/puzzlehash/${blockRecord.farmer_puzzle_hash}`}
         >
           {currencyCode
             ? toBech32m(
@@ -284,7 +284,7 @@ export default function Block() {
       value: (
         <Link
           target="_blank"
-          href={`https://www.flaxexplorer.org/blockchain/puzzlehash/${blockRecord.pool_puzzle_hash}`}
+          href={`https://www.beetexplorer.org/blockchain/puzzlehash/${blockRecord.pool_puzzle_hash}`}
         >
           {currencyCode
             ? toBech32m(
@@ -319,7 +319,7 @@ export default function Block() {
     },
     {
       name: <Trans>Fees Amount</Trans>,
-      value: flaxFees ? `${flaxFees} ${currencyCode}` : '',
+      value: beetFees ? `${beetFees} ${currencyCode}` : '',
       tooltip: (
         <Trans>
           The total transactions fees in this block. Rewarded to the farmer.
@@ -334,7 +334,7 @@ export default function Block() {
         title={
           <BlockTitle>
             <Trans>
-              Block at height {blockRecord.height} in the Flax blockchain
+              Block at height {blockRecord.height} in the beet blockchain
             </Trans>
           </BlockTitle>
         }

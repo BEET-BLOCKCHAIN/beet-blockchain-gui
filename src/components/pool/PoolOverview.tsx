@@ -1,7 +1,7 @@
 import React from 'react';
 import { Trans } from '@lingui/macro';
 import { useToggle } from 'react-use';
-import { Flex, UnitFormat, More, Table } from '@flax/core';
+import { Flex, UnitFormat, More, Table } from '@beet/core';
 import { useHistory } from 'react-router';
 import {
   ViewList as ViewListIcon,
@@ -31,7 +31,7 @@ import PlotNFTStateEnum from '../../constants/PlotNFTState';
 import PlotNFTUnconfirmedCard from '../plotNFT/PlotNFTUnconfirmedCard';
 import PlotNFTState from '../plotNFT/PlotNFTState';
 import useUnconfirmedPlotNFTs from '../../hooks/useUnconfirmedPlotNFTs';
-import { mojo_to_flax } from '../../util/flax';
+import { mojo_to_beet } from '../../util/beet';
 import WalletStatus from '../wallet/WalletStatus';
 
 const groupsCols = [
@@ -54,7 +54,7 @@ const groupsCols = [
       if (state === PlotNFTStateEnum.SELF_POOLING) {
         return (
           <UnitFormat
-            value={mojo_to_flax(
+            value={mojo_to_beet(
               BigInt(nft.wallet_balance.confirmed_wallet_balance ?? 0),
             )}
           />
